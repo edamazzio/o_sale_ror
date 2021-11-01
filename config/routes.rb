@@ -14,8 +14,13 @@ Rails.application.routes.draw do
   delete '/signout', to: 'sessions#destroy', as: 'session'
 
   # Products
+  get 'products/search'
+  post 'products/search', to: 'products#filterByName', as: 'search_products'
   root to: "products#index"
-  resources :products
+  resources :products do
+    resources :comments, only: [:create]
+  end
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # get "/products", to: "products#index"

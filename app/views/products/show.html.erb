@@ -16,15 +16,33 @@
         <%= @product.description %>
       </div>
 
-      <div class="float-right btn-edit-del">
-        <%= link_to "Delete", product_path(@product), class: "btn btn-outline-danger btn-lg",
-                    method: :delete, data: { confirm: "Are you sure you want to delete this product" } %>
-      </div>
+      <% if current_user && @product.owned_by?(current_user) %>
+        <div class="float-right btn-edit-del">
+          <%= link_to "Delete", product_path(@product), class: "btn btn-outline-danger btn-lg",
+                      method: :delete, data: { confirm: "Are you sure you want to delete this product" } %>
+        </div>
 
-      <div class="btn-edit-del">
-        <%= link_to "Edit", edit_product_path(@product), class: "btn btn-outline-purple btn-lg" %>
-      </div>
+        <div class="btn-edit-del">
+          <%= link_to "Edit", edit_product_path(@product), class: "btn btn-outline-purple btn-lg" %>
+        </div>
+      <% end %>
+
     </div>
+  </div>
+  <%=
+    render partial: 'comments/form',
+           locals: { product: @product, comment: @comment }
+  %>
+
+  <div class="row">
+    <div class="col-md-10 offset-md-1 mt-4">
+      <h2 class="comment-header">Customer comments (<%= @comments.count %>)</h2>
+    </div>
+
+    <% persisted_comments(@comments).each do |comment| %>
+      <%= render partial: 'comments/comment', object: comment %>
+    <%end %>
+
   </div>
 </div>
 
