@@ -37,7 +37,8 @@ Product.create([
     dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
     officia deserunt mollit anim id est laborum.',
                    quantity: 5,
-                   user_id: john.id
+                   user_id: john.id,
+                   image_url: "https://place-hold.it/140x100"
                  },
                  {
                    name: 'Name 2',
@@ -48,7 +49,8 @@ Product.create([
     dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
     officia deserunt mollit anim id est laborum.',
                    quantity: 9,
-                   user_id: john.id
+                   user_id: john.id,
+                   image_url: "https://place-hold.it/140x100"
                  },
                  {
                    name: 'Name 3',
@@ -59,6 +61,7 @@ Product.create([
     dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
     officia deserunt mollit anim id est laborum.',
                    quantity: 8,
-                   user_id: jane.id
+                   user_id: jane.id,
+                   image_url: "https://place-hold.it/140x100"
                  }
                ])

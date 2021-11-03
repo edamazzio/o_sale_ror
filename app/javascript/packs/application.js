@@ -10,6 +10,18 @@ import "channels"
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import "../../styles/custom.css"
+import ReactDOM from "react-dom";
+import React from "react";
+
+import App from "../containers/App";
+
+document.addEventListener('DOMContentLoaded', () => {
+    const root = document.getElementById("root");
+    ReactDOM.render(
+        <App />,
+        root
+    )
+})
 
 Rails.start()
 Turbolinks.start()
